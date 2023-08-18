@@ -22,7 +22,7 @@ function App() {
     //drink is not iterable (cannot read property null)
     //TypeError: drink is not iterable (cannot read property null)
     //at http://localhost:3000/main.97366a59d4783f16d0d1.hot-update.js:72:23
-  const [letter, setLetter] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'v', 'w', 'y', 'z'])
+  const [letter, setLetter] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't','u', 'v', 'w','x', 'y', 'z'])
 
 
   const getDrink = async () => {
@@ -41,11 +41,17 @@ function App() {
       //This is handling the promise array and processing the promises received.
       //At the end I am setDrink to the destructured array drinklist
       Promise.all(promises).then((values) => {
-        var responses = values.map((e) => { return e.json(); });
+        var responses = values.map((e) => { 
+          return e.json(); 
+        });
         Promise.all(responses).then((jsonresponses) => {
-          let drinks = jsonresponses.map((e) => { return e.drinks });
+          let drinks = jsonresponses.map((e) => { 
+            return e.drinks 
+          });
           for (const drink of drinks) {
-            drinklist.push(...drink)
+            if(drink){
+              drinklist.push(...drink)
+            }
           }
           setDrink(drinklist)
           setStoredDrinks(drinklist)

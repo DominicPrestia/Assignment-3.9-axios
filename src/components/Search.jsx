@@ -20,7 +20,7 @@ const Search = ({ drink, setLetter, setDrink }) => {
     alphabetURL.get(`api/json/v1/1/search.php?f=${alphabet}`)
       .then(res => {
       setDrink()
-       setDrink(res.data);
+       setDrink(res?.data);
       })
       .catch((err)=>{
         console.log(err);
@@ -66,8 +66,10 @@ const Search = ({ drink, setLetter, setDrink }) => {
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>R</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>S</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>T</button>
+        <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>U</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>V</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>W</button>
+        <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>X</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>Y</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>Z</button>
 
