@@ -1,18 +1,17 @@
-import React, { useState } from 'react'
-import DrinkCard from './DrinkCard'
-import axios from 'axios'
-import { useEffect } from 'react'
-import Menu from './Menu'
+import React, { useState } from "react";
+import DrinkCard from "./DrinkCard";
+import axios from "axios";
+import { useEffect } from "react";
+import Menu from "./Menu";
+import { getCocktailData } from "./cocktails.service";
 
 const Search = ({ drink, setLetter, setDrink }) => {
-
-  const [alphabet, setAlphabet] = useState('a')
-  const [buttonText, setButtonText] = useState('A')
+  const [alphabet, setAlphabet] = useState("a");
+  const [buttonText, setButtonText] = useState("A");
 
   const alphabetURL = axios.create({
-    baseURL: `https://www.thecocktaildb.com/`
-  })
-
+    baseURL: `https://www.thecocktaildb.com/`,
+  });
 
   function getData() {
 
@@ -22,28 +21,21 @@ const Search = ({ drink, setLetter, setDrink }) => {
       setDrink()
        setDrink(res?.data);
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log(err);
-      })
-
-
-
+      });
   }
-
 
   const handleAlphaSearch = (e) => {
-    setAlphabet(e)
-  }
+    setAlphabet(e);
+  };
 
-
-  useEffect(()=>{
+  useEffect(() => {
     getData();
-  },[alphabet])
-
+  }, [alphabet]);
 
   return (
     <>
-    
       <h1>Alphabet Search</h1>
       <div className='button-master'>
         <button type='button' onClick={e => handleAlphaSearch(e.target.innerHTML)}>A</button>
@@ -66,10 +58,8 @@ const Search = ({ drink, setLetter, setDrink }) => {
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>R</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>S</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>T</button>
-        <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>U</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>V</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>W</button>
-        <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>X</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>Y</button>
         <button onClick={e => handleAlphaSearch(e.target.innerHTML)}>Z</button>
 
@@ -77,9 +67,8 @@ const Search = ({ drink, setLetter, setDrink }) => {
 
       <h1>Drinks Starting with: {alphabet}</h1>
       <Menu drink={drink?.drinks} />
-
     </>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
