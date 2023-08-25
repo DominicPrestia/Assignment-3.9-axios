@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Assignment-3.9-axios/static/css/main.49f0e19a.css",
+    "main.js": "/Assignment-3.9-axios/static/js/main.35073493.js",
+    "static/media/bar_banner_vid.mp4": "/Assignment-3.9-axios/static/media/bar_banner_vid.169cb3a1a29b480b2247.mp4",
+    "index.html": "/Assignment-3.9-axios/index.html",
+    "main.49f0e19a.css.map": "/Assignment-3.9-axios/static/css/main.49f0e19a.css.map",
+    "main.35073493.js.map": "/Assignment-3.9-axios/static/js/main.35073493.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49f0e19a.css",
+    "static/js/main.35073493.js"
+  ]
+}
