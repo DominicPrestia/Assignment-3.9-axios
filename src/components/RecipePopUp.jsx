@@ -56,3 +56,4 @@ const RecipePopUp = ({ drinks, setRecipePopUp }) => {
         </>
     )
 }
+export default RecipePopUp
